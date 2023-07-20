@@ -6,4 +6,4 @@ def generate_combinations():
 all_combinations = generate_combinations()
 
 for combinations in all_combinations:
-    print(f"{combinations[0]}, {combinations[1]}", end=", ")
+    print("{}, {}".format(combinations[0], combinations[1]), end=", ")
