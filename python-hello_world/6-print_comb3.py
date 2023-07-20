@@ -1,9 +1,6 @@
 def generate_combinations():
-    combinations = [(i, j) for i in range(89) for j in range(89) if i != j]
-    return combinations
+    return [(str(i).zfill(2), str(j).zfill(2)) for i in range(1, 90) for j in range(i + 1, 90)]
 
 
-all_combinations = generate_combinations()
-
-for combinations in all_combinations:
-    print("{}, {}".format(combinations[0], combinations[1]), end=", ")
+for i, j in generate_combinations():
+    print("{}, {}".format(i, j), end=", ")
