@@ -8,13 +8,12 @@ c = "and is greater than 5"
 d = "and is 0"
 e = "and is less than 6 and not 0"
 f = abs(number) % 10
-g = end = " "
 
 if number < 0:
     f = -f
-    print("{} {} {} {} {}".format(a, number, b, f, g))
+    print("{} {} {} {} ".format(a, number, b, f,))
 else:
-    print("{} {} {} {} {}".format(a, number, b, f, g))
+    print("{} {} {} {} ".format(a, number, b, f,))
 
 if number > 5:
     print("{} {} {} {} and is greater than 5".format(a, number, b, f))
