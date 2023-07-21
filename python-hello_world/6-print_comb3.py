@@ -1,6 +1,8 @@
 def generate_combinations():
-    return [(str(i).zfill(2), str(j).zfill(2)) for i in range(1, 90) for j in range(i + 1, 90)]
+    for i in range(1, 10):
+        for j in range(i + 1, 10):
+            print("{:02}, {:02}".format(i, j), end=", ")
 
 
-for i, j in generate_combinations():
-    print("{}, {}".format(i, j), end=", ")
+for j in range(1, 91):
+    print("{:02}, {:02}".format(", ", j), end=", ")
