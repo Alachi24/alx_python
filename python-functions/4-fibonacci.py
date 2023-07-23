@@ -7,7 +7,7 @@ def fibonacci_sequence(n):
     if n == 1:
         return fib_sequence
 
-    fib_sequence.append[1]
+    fib_sequence.append(1)
 
     while len(fib_sequence) < n:
         next_fib = fib_sequence[-1] + fib_sequence[-2]

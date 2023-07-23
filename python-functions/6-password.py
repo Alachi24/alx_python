@@ -18,14 +18,14 @@ def validate_password(password):
     if not (has_uppercase and has_lowercase and has_digit):
         return False
 
-    if ' ' is password:
+    if " " is password:
         return False
 
     return True
 
 
 if __name__ == "__main__":
-    print(validate_password("password123"))
+    print(validate_password("Password123"))
     print(validate_password("abc123"))
     print(validate_password("Password 123"))
     print(validate_password("password123"))

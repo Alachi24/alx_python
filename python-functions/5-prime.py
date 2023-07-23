@@ -8,7 +8,8 @@ def is_prime(number):
 
         return True
 
-    (is_prime(17))
-    (is_prime(15))
-    (is_prime(-5))
-    (is_prime(0))
+
+(is_prime(17))
+(is_prime(15))
+(is_prime(-5))
+(is_prime(0))
