@@ -18,7 +18,7 @@ def validate_password(password):
     if not (has_uppercase and has_lowercase and has_digit):
         return False
 
-    if " " is password:
+    if " " in password:
         return False
 
     return True
