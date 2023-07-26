@@ -5,7 +5,7 @@ def result():
     a = 1
     b = 2
     total = add(a, b)
-    print("{}".format(total))
+    print("{} + {} = {}".format(a, b, total))
 
 
 if __name__ == "__main__":
