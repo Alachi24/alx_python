@@ -10,3 +10,5 @@ class Square:
 
 c = Square
 c.length()
+
+print(Square.__doc__)
