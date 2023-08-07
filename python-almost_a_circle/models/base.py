@@ -14,7 +14,7 @@ class Base:
 
 
 """
-function init calling self and an id
+function __init__ calling self and an id
 """
 
 
