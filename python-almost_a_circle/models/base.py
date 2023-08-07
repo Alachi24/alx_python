@@ -13,12 +13,10 @@ class Base:
     __nb_objects = 0
 
 
-"""
+def __init__(self, id=None):
+    """
 function __init__ calling self and an id
 """
-
-
-def __init__(self, id=None):
     self.id = None
 
     """
