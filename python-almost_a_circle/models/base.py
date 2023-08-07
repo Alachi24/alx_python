@@ -1,3 +1,8 @@
+"""
+Defining a class that has both private and instances
+"""
+
+
 class Base:
     """
     Creating our first class.
