@@ -135,11 +135,11 @@ class Rectangle(Base):
 
     # TASK 3
 
-    # def area(self):
-    #     """
-    #     Calculate the area of the geometry.
+    def area(self):
+        """
+       Calculate the area of the geometry.
 
-    #     Raises:
-    #         its value after multiplication
-    #     """
-    #     return self.width ** self.height
+        Raises:
+            its value after multiplication
+        """
+        return self.width * self.height
