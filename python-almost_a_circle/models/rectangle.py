@@ -77,8 +77,8 @@ class Rectangle(Base):
 
         """
         Raises:
-        TypeError: the width must be an integer
-        ValueError: the width must be > 0
+        TypeError: the height must be an integer
+        ValueError: the height must be > 0
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -98,13 +98,13 @@ class Rectangle(Base):
 
         """
         Raises:
-        TypeError: the width must be an integer
-        ValueError: the width must be > 0
+        TypeError: the x must be an integer
+        ValueError: the x must be >= 0
         """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value <= 0:
-            raise ValueError("x must be > 0")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -119,13 +119,13 @@ class Rectangle(Base):
 
         """
         Raises:
-        TypeError: the width must be an integer
-        ValueError: the width must be > 0
+        TypeError: the y must be an integer
+        ValueError: the y must be >= 0
         """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value <= 0:
-            raise ValueError("y must be > 0")
+            raise ValueError("y must be >= 0")
 
     # def area(self):
     #     """
