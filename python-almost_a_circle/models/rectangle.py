@@ -1,3 +1,5 @@
+# TASK 0
+
 """
 Defining a class that has both private and instances
 """
@@ -28,6 +30,8 @@ class Base:
             self.id = Base.__nb_objects
 
 
+# TASK 1
+
 """
 The class rectangle is inheriting from class Base
 """
@@ -53,6 +57,8 @@ class Rectangle(Base):
     def width(self, value):
         """Set the width of the rectangle"""
         self.__width = value
+
+       # TASK 2
 
         """
         Raises:
@@ -103,7 +109,7 @@ class Rectangle(Base):
         """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
 
@@ -124,8 +130,10 @@ class Rectangle(Base):
         """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
+
+    # TASK 3
 
     # def area(self):
     #     """
