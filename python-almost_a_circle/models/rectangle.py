@@ -143,3 +143,24 @@ class Rectangle(Base):
             its value after multiplication
         """
         return self.width * self.height
+
+    # TASK 4
+    def display(self):
+        """
+        will use this method to display the instances using "#"
+        """
+        for row in range(self.height):
+            for column in range(self.width):
+                print("#", end="")
+            else:
+                print()
+
+
+# From the example in the task to confirm it's working
+r1 = Rectangle(4, 6)
+r1.display()
+
+print("---")
+
+r1 = Rectangle(2, 2)
+r1.display()
