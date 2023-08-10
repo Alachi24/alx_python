@@ -167,13 +167,27 @@ class Rectangle(Base):
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
 
-    # TASK 7
+    # TASK 8
+    # Modified from task 7
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         passing arguments to attributes
         """
         args_length = len(args)
+        kwargs_length = len(kwargs)
+
+        for key, value in kwargs.items():
+            if key == "id":
+                self.value = id
+            elif key == "width":
+                self.width = value
+            elif key == "height":
+                self.height = value
+            elif key == "x":
+                self.x = value
+            elif key == "y":
+                self.y = value
 
         if args_length > 0:
             self.id = args[0]  # only this will run
