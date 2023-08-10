@@ -1,6 +1,6 @@
-# TASK 9
-from rectangle import Rectangle
 
+from rectangle import Rectangle
+# TASK 9
 """
 the class Square is inheriting from Rectangle
 """
