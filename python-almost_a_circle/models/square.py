@@ -26,7 +26,7 @@ class Square(Rectangle):
         I won't change width & height to size because size isn't defined due to inheritance
 
         """
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width, self.height)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
 # TASK 10
     """
