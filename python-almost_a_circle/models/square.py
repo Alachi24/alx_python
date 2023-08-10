@@ -7,6 +7,10 @@ the class Square is inheriting from Rectangle
 
 
 class Square(Rectangle):
+    """
+    initializing the attributes
+    """
+
     def __init__(self, size, x=0, y=0, id=None):
         # size will stand for width & height
         super().__init__(size, size, x=0, y=0, id=None)
@@ -16,7 +20,9 @@ class Square(Rectangle):
         return "[Square] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
 
 # TASK 10
-
+    """
+    adding the setter and getter for the size
+    """
     @property
     def size(self):
      # getter method
