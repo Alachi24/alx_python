@@ -178,10 +178,10 @@ class Rectangle(Base):
         if args_length > 0:
             self.id = args[0]  # only this will run
         if args_length > 1:
-            self.id = args[1]  # only "0" then "1" will run
+            self.width = args[1]  # only "0" then "1" will run
         if args_length > 2:
-            self.id = args[2]  # only "0, 1" then "2" will run
+            self.height = args[2]  # only "0, 1" then "2" will run
         if args_length > 3:
-            self.id = args[3]  # only "0, 1, 2" then "3" will run
+            self.x = args[3]  # only "0, 1, 2" then "3" will run
         if args_length > 4:
-            self.id = args[4]  # only "0, 1, 2, 3" then "4" will run
+            self.y = args[4]  # only "0, 1, 2, 3" then "4" will run
