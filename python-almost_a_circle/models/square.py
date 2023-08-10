@@ -2,7 +2,7 @@
 importing attributes from rectangle.py
 """
 # TASK 9
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 """
 the class Square is inheriting from Rectangle
