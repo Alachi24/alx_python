@@ -2,8 +2,7 @@
 importing attributes from rectangle.py
 """
 # TASK 9
-Rectangle = __import__("rectangle").Rectangle
-
+from rectangle import Rectangle
 
 """
 the class Square is inheriting from Rectangle
@@ -16,11 +15,17 @@ class Square(Rectangle):
     """
 
     def __init__(self, size, x=0, y=0, id=None):
-        # size will stand for width & height
+        """
+        size will stand for width & height
+
+        """
         super().__init__(size, size, x=0, y=0, id=None)
 
     def __str__(self):
-        # I won't change width & height to size because size isn't defined due to inheritance
+        """
+        I won't change width & height to size because size isn't defined due to inheritance
+
+        """
         return "[Square] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
 
 # TASK 10
@@ -29,9 +34,14 @@ class Square(Rectangle):
     """
     @property
     def size(self):
-     # getter method
+        """ 
+        getter method
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """
+        setter method
+        """
         self.width = value
