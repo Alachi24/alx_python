@@ -155,12 +155,7 @@ class Rectangle(Base):
             else:
                 print()
 
+    # TASK 5
 
-# From the example in the task to confirm it's working
-r1 = Rectangle(4, 6)
-r1.display()
-
-print("---")
-
-r1 = Rectangle(2, 2)
-r1.display()
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
