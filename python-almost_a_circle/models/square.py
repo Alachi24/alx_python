@@ -19,7 +19,7 @@ class Square(Rectangle):
         size will stand for width & height
 
         """
-        super().__init__(size, size, x=0, y=0, id=None)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """
