@@ -156,13 +156,32 @@ class Rectangle(Base):
             for row in range(self.height):
                 for column in range(self.x):
                     print(" ", end="")
-            else:
-                for column in range(self.width):
-                    print("#", end="")
                 else:
-                    print()
+                    for column in range(self.width):
+                        print("#", end="")
+                    else:
+                        print()
 
     # TASK 5
 
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+
+    # TASK 7
+
+    def update(self, *args):
+        """
+        passing arguments to attributes
+        """
+        args_length = len(args)
+
+        if args_length > 0:
+            self.id = args[0]  # only this will run
+        if args_length > 1:
+            self.id = args[1]  # only "0" then "1" will run
+        if args_length > 2:
+            self.id = args[2]  # only "0, 1" then "2" will run
+        if args_length > 3:
+            self.id = args[3]  # only "0, 1, 2" then "3" will run
+        if args_length > 4:
+            self.id = args[4]  # only "0, 1, 2, 3" then "4" will run
