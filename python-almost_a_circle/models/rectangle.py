@@ -144,16 +144,23 @@ class Rectangle(Base):
         """
         return self.width * self.height
 
-    # TASK 4
+    # TASK 6
+    # Modified from task 4
     def display(self):
         """
         will use this method to display the instances using "#"
         """
-        for row in range(self.height):
-            for column in range(self.width):
-                print("#", end="")
+        for row in range(self.y):
+            print()
+        else:
+            for row in range(self.height):
+                for column in range(self.x):
+                    print(" ", end="")
             else:
-                print()
+                for column in range(self.width):
+                    print("#", end="")
+                else:
+                    print()
 
     # TASK 5
 
