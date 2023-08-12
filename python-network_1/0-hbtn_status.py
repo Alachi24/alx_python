@@ -9,7 +9,8 @@ rename it to 'req'
 req = requests.get("https://alu-intranet.hbtn.io/status")
 
 print("Body response:")
+# '\t' stands for tab
 # when ascertaining the type, you use this code to get <class 'str'>
-print("- type: {}".format(type(req.text)))
+print("\t- type: {}".format(type(req.text)))
 # when ascertaining the text, you use this code to get 'ok'
-print("- content: {}".format(req.text))
+print("\t- content: {}".format(req.text))
