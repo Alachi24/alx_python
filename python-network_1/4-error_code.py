@@ -3,7 +3,7 @@ import sys
 
 
 def get_request(url):
-    """GET request is send to the given URL"""
+    """GET request is sent to the given URL"""
     response = requests.get(url)
     if response.status_code >= 400:
         print("Error code:", response.status_code)
