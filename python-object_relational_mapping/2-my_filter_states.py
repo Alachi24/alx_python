@@ -12,7 +12,7 @@ cursor = database.cursor()
 state_name = sys.argv[4]
 
 cursor.execute(
-    "SELECT id, FROM states WHERE name is '{}' ORDER BY id ASC".format(state_name))
+    "SELECT id, FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(state_name))
 states = cursor.fetchall()
 
 for state in states:
