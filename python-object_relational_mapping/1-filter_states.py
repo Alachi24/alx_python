@@ -9,9 +9,10 @@ database = MySQLdb.connect(host="localhost", port=3306,
                            db=sys.argv[3])
 
 # create a 'cursor', note it can be named anything
+# using 'BINARY' before 'name' enables python know case-sensitive is needed
 cursor = database.cursor()
 cursor.execute(
-    "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    "SELECT id, name FROM states WHERE name LIKE 'n%' ORDER BY id ASC")
 states = cursor.fetchall()
 
 for state in states:
