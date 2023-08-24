@@ -3,9 +3,10 @@ import MySQLdb
 import sys
 
 # created a variable
-database = MySQLdb.connect(host=sys.argv[1], port=3306,
-                           user=sys.argv[2],
-                           passwd=sys.argv[3])
+database = MySQLdb.connect(host="localhost", port=3306,
+                           user=sys.argv[1],
+                           passwd=sys.argv[2]
+                           db=sys.argv[3])
 
 cursor = database.cursor()
 query = "SELECT id, name FROM states \
