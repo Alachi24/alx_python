@@ -1,6 +1,7 @@
 # imported these packages for use
 import MySQLdb
 import sys
+
 if __name__ == "__main__":
 
     # created a variable
@@ -11,8 +12,8 @@ if __name__ == "__main__":
 
     cursor = database.cursor()
     query = "SELECT id, name FROM states \
-        WHERE BINARY name = %s \
-        ORDER BY id ASC"
+            WHERE BINARY name = %s \
+            ORDER BY id ASC"
 
     state_name = sys.argv[4]
 
