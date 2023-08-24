@@ -18,7 +18,6 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     cursor.execute = (query, (state_name, ))
-
     states = cursor.fetchall()
 
     for state in states:
