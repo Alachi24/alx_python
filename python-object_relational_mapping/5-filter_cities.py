@@ -15,10 +15,10 @@ if __name__ == '__main__':
                                db=database)
 
     cursor = database.cursor()
-    query = "SELECT cities.id, cities.name, states.name \
-            FROM cities JOIN states ON state_id = states.id \
-            WHERE states.name = %s\
-            ORDER BY cities.id ASC"
+    query = " SELECT cities.name FROM cities\
+              JOIN states ON cities.state_id = states.id\
+              WHERE states.name = %s\
+              ORDER BY cities.id ASC"
 
     state = sys.argv[4]
 
