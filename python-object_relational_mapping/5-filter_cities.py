@@ -28,8 +28,9 @@ if __name__ == '__main__':
     # fetch all the matching rows
     cities = cursor.fetchall()
 
-    for city in cities:
-        print(city)
+    rows = cursor.fetchall()
+    city_names = [row[0] for row in rows]
+    print(", ".join(city_names))
 
     # close both cursor and database connection
     cursor.close()
