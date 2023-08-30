@@ -24,13 +24,16 @@ def hbnb():
     return "HBNB"
 
 
+# in this format "/c/<text>/", it won't render in your browser rather it'll be 404
 @app.route("/c/<text>/", strict_slashes=False)
 def c(text):
     # replace all underscores with spaces
     return f"C {text.replace('_', ' ')}"
 
 
-@app.route("/python/<text>/", strict_slashes=False)
+# added default parameter to be "is cool"
+@app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route("/python/<text>")
 def python(text):
     # replace all underscores with spaces
     return f"Python {text.replace('_', ' ')}"
