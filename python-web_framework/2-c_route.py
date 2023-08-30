@@ -24,8 +24,8 @@ def hbnb():
 
 
 @app.route("/c/<text>", strict_slashes=False)
-def C():
-    return "C is fun"
+def c():
+    return " "
 
 
 if __name__ == "__main__":
