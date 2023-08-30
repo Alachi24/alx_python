@@ -2,6 +2,7 @@
 importing from flask
 """
 from flask import Flask
+from markupsafe import escape
 
 """
 this is needed so flask knows where to look up resources
@@ -25,7 +26,7 @@ def hbnb():
 
 @app.route("/c/<text>/", strict_slashes=False)
 def c(text):
-    return f"C {text}"
+    return f"C {escape(text)}"
 
 
 if __name__ == "__main__":
