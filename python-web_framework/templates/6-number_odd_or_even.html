@@ -6,6 +6,9 @@
     <title>HBNB</title>
   </head>
   <body>
-    <h1>Number: {{n IS even|odd}}</h1>
+    {% if(n == "even") %}
+    <h1>Number: {{n IS even}}</h1>
+    {% else %}
+    <h1>Number: {{n IS "odd"}}</h1>
   </body>
 </html>
