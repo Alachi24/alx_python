@@ -1,41 +1,47 @@
+import sys
 import requests
 
 
 def get_employee_todo_progress(employee_id):
     # Fetch employee details
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    response = requests.get(employee_url)
+    employee_response = requests.get(employee_url)
 
-    if response.status_code == 200:
-        employee_data = response.json()
+    # Check if the employee request was successful (status code 200)
+    if employee_response.status_code == 200:
+        employee_data = employee_response.json()
         employee_name = employee_data["name"]
+
+        # Fetch employee's TODO list
+        todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
+        todo_response = requests.get(todo_url)
+
+        # Check if the TODO list request was successful (status code 200)
+        if todo_response.status_code == 200:
+            todo_list = todo_response.json()
+
+            # Calculate progress
+            total_tasks = len(todo_list)
+            completed_tasks = sum(1 for task in todo_list if task["completed"])
+
+            # Display progress
+            print(
+                f"Employee {employee_name} is done with tasks ({completed_tasks}/{total_tasks}):")
+
+            for task in todo_list:
+                if task["completed"]:
+                    print(f"\t{task['title']}")
+        else:
+            print(
+                f"Failed to fetch TODO list. Status code: {todo_response.status_code}")
     else:
-        print(f"Employee with ID {employee_id} not found.")
-        return
-
-    # Fetch employee's TODO list
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
-    response = requests.get(todo_url)
-
-    if response.status_code == 200:
-        todo_list = response.json()
-    else:
-        print(f"TODO list for employee {employee_name} not found.")
-        return
-
-    # Calculate progress
-    total_tasks = len(todo_list)
-    completed_tasks = sum(1 for task in todo_list if task["completed"])
-
-    # Display progress
-    print(
-        f"Employee {employee_name} is done with tasks ({completed_tasks}/{total_tasks}):")
-
-    for task in todo_list:
-        if task["completed"]:
-            print(f"\t{task['title']}")
+        print(
+            f"Failed to fetch employee details. Status code: {employee_response.status_code}")
 
 
 if __name__ == "__main__":
-    employee_id = int(input("Enter the employee ID: "))
-    get_employee_todo_progress(employee_id)
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <employee_id>")
+    else:
+        employee_id = int(sys.argv[1])
+        get_employee_todo_progress(employee_id)
