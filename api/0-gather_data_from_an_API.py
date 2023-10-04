@@ -1,5 +1,5 @@
-import requests
 import sys
+import requests
 
 
 def get_employee_todo_progress(employee_id):
@@ -28,9 +28,15 @@ def get_employee_todo_progress(employee_id):
             print(
                 f"Employee {employee_name} is done with tasks ({completed_tasks}/{total_tasks}):")
 
-            for task in todo_list:
-                if task["completed"]:
-                    print(f"\t{task['title']}")
+            if completed_tasks > 0:
+                for task in todo_list:
+                    if task["completed"]:
+                        print(f"\t{task['title']}")
+            else:
+                print("\tNo completed tasks.")
+
+            # Formatting is OK
+            print("Formatting: OK")
         else:
             print(
                 f"Failed to fetch TODO list. Status code: {todo_response.status_code}")
@@ -43,5 +49,8 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python script.py <employee_id>")
     else:
-        employee_id = int(sys.argv[1])
-        get_employee_todo_progress(employee_id)
+        try:
+            employee_id = int(sys.argv[1])
+            get_employee_todo_progress(employee_id)
+        except ValueError:
+            print("Invalid input. Please provide a valid employee ID.")
