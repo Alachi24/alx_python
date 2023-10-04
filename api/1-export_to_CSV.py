@@ -46,8 +46,8 @@ def export_employee_data(employee_id):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python script.py employee_id1 employee_id2 ...")
-        sys.exit(1)
+    else:
 
-    employee_ids = sys.argv[1:]
-    for emp_id in employee_ids:
-        export_employee_data(int(emp_id))
+        employee_ids = sys.argv[1:]
+        for emp_id in employee_ids:
+            export_employee_data(int(emp_id))
