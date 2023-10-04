@@ -1,53 +1,43 @@
-import csv
 import requests
+import csv
 import sys
 
+if len(sys.argv) != 2:
+    print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
+    sys.exit(1)
 
-def export_employee_data(employee_id):
-    # Fetch employee details
-    try:
-        response_user = requests.get(
-            f'https://jsonplaceholder.typicode.com/users/{employee_id}')
-        response_user.raise_for_status()
-        user_data = response_user.json()
-    except requests.exceptions.RequestException as e:
-        print("Error:", e)
-        return
+employee_id = sys.argv[1]
+url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+response = requests.get(url)
+employee_name = response.json().get("name")
 
-    # Fetch employee's tasks
-    try:
-        response_todos = requests.get(
-            f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos')
-        response_todos.raise_for_status()
-        todos_data = response_todos.json()
-    except requests.exceptions.RequestException as e:
-        print("Error:", e)
-        return
+if not employee_name:
+    print(f"No employee found with ID {employee_id}")
+    sys.exit(1)
 
-    # Prepare CSV file name based on the employee's ID
-    csv_filename = f'{employee_id}.csv'
+url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
+response = requests.get(url)
+todos = response.json()
 
-    # Write tasks to CSV
-    with open(csv_filename, 'w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
+total_tasks = len(todos)
+done_tasks = sum(1 for todo in todos if todo.get("completed"))
 
-        # Write CSV header
-        csv_writer.writerow(
-            ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+print(
+    f"Employee {employee_name} is done with tasks({done_tasks}/{total_tasks}):")
+for todo in todos:
+    if todo.get("completed"):
+        print(f"\t {todo.get('title')}")
 
-        # Write tasks
-        for task in todos_data:
-            csv_writer.writerow(
-                [employee_id, user_data["username"], str(task["completed"]), task["title"]])
+# Export to CSV
+csv_filename = f'{employee_id}.csv'
+with open(csv_filename, 'w', newline='') as csvfile:
+    csv_writer = csv.writer(csvfile)
+    # Write CSV header
+    csv_writer.writerow(
+        ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+    # Write tasks
+    for todo in todos:
+        csv_writer.writerow([employee_id, employee_name,
+                            todo.get("completed"), todo.get("title")])
 
-    print(f"Data exported to {csv_filename}")
-
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python script.py employee_id1 employee_id2 ...")
-    else:
-
-        employee_ids = sys.argv[1:]
-        for emp_id in employee_ids:
-            export_employee_data(int(emp_id))
+print(f"Data exported to {csv_filename}")
