@@ -1,10 +1,18 @@
 import requests
 import sys
 
+"""
+The script accepts an integer as a parameter, 
+which is the employee ID. It then retrieves the name of the employee from the endpoint
+"""
 if len(sys.argv) != 2:
     print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
     sys.exit(1)
 
+"""
+It calculates the number of completed tasks and total tasks and prints them in the required format. 
+Finally, it prints the title of completed tasks.
+"""
 employee_id = sys.argv[1]
 url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
 response = requests.get(url)
