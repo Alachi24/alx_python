@@ -36,8 +36,8 @@ with open(csv_filename, 'w', newline='') as csvfile:
     # csv_writer.writerow(
     #     ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
     # Write tasks
-    for todo in todos:
-        csv_writer.writerow([employee_id, employee_name,
-                            todo.get("completed"), todo.get("title")])
+    # for todo in todos:
+    #     csv_writer.writerow([employee_id, employee_name,
+    #                         todo.get("completed"), todo.get("title")])
 
 print(f"Data exported to {csv_filename}")
