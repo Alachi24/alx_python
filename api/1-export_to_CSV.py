@@ -32,13 +32,8 @@ for todo in todos:
 csv_filename = f'{employee_id}.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
     csv_writer = csv.writer(csvfile)
-if csvfile == 0:
-    print("User ID and Username: OK")
     # Write tasks
-    for todo in todos:
-        csv_writer.writerow([employee_id, employee_name,
-                            todo.get("completed"), todo.get("title")])
+    csv_writer.writerow([employee_id, employee_name,
+                         todo.get("completed"), todo.get("title")])
 
-if csvfile == 0:
-    print("Formatting: OK")
 print(f"Data exported to {csv_filename}")
