@@ -32,9 +32,6 @@ for todo in todos:
 csv_filename = f'{employee_id}.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
     csv_writer = csv.writer(csvfile)
-    # Write CSV header
-    csv_writer.writerow(
-        ["USER ID", "username"])
     # Write tasks
     for todo in todos:
         csv_writer.writerow([employee_id, employee_name,
