@@ -22,7 +22,6 @@ todos = response.json()
 
 # Prepare the data in JSON format
 # Initialize as a list of dicts `employee_id` as the key and [] as the value
-data = [{employee_id: []}]
 
 employee_tasks = []
 for todo in todos:
