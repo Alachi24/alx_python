@@ -33,14 +33,10 @@ for todo in todos:
     }
     employee_tasks.append(task_data)
 
-employee_info = {
-    "USER_ID": employee_id,
-    "tasks": employee_tasks
-}
 
 output_file = f"{employee_id}.json"
 
 with open(output_file, 'w') as json_file:
-    json.dump(employee_info, json_file, indent=4)
+    json.dump({employee_id: employee_tasks}, json_file, indent=4)
 
 print(f"Data exported to {output_file}")
