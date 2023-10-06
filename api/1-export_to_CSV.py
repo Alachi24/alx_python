@@ -31,7 +31,8 @@ for todo in todos:
 # Export to CSV
 csv_filename = f'{employee_id}.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
-    csv_writer = csv.writer(csvfile)
+    csv_writer = csv.writer(csvfile, delimiter=',',
+                            quotechar='"', quoting=csv.QUOTE_ALL)
     # Write tasks
     for todo in todos:
         csv_writer.writerow([employee_id, employee_name,
