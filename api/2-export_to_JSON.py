@@ -24,19 +24,23 @@ todos = response.json()
 # Initialize as a list of dicts `employee_id` as the key and [] as the value
 data = [{employee_id: []}]
 
+employee_tasks = []
 for todo in todos:
     task_data = {
         "task": todo.get("title"),
         "completed": todo.get("completed"),
         "username": employee_name
     }
-    # Append to the first (and only) dict in the list
-    data[0][employee_id].append(task_data)
+    employee_tasks.append(task_data)
 
-# Write the JSON data to a file
+employee_info = {
+    "USER_ID": employee_id,
+    "tasks": employee_tasks
+}
+
 output_file = f"{employee_id}.json"
 
 with open(output_file, 'w') as json_file:
-    json.dump(data, json_file, indent=4)
+    json.dump(employee_info, json_file, indent=4)
 
 print(f"Data exported to {output_file}")
