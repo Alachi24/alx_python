@@ -1,6 +1,7 @@
+import json
 import requests
 import sys
-import json
+
 
 if len(sys.argv) != 2:
     print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
