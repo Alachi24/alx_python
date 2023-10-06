@@ -37,6 +37,6 @@ data = {
 # Write the JSON data to a file
 filename = f"{employee_id}.json"
 with open(filename, "w") as json_file:
-    json.dump(data, json_file, indent=4)
+    json.dump({employee_id: data}, json_file, indent=4)
 
 print(f"Data exported to {filename}")
