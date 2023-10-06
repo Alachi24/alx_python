@@ -9,7 +9,7 @@ if len(sys.argv) != 2:
 employee_id = sys.argv[1]
 url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
 response = requests.get(url)
-employee_name = response.json().get("name")
+employee_name = response.json().get("username")
 
 if not employee_name:
     print(f"No employee found with ID {employee_id}")
