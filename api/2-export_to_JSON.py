@@ -20,7 +20,9 @@ url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
 response = requests.get(url)
 todos = response.json()
 
-data = {employee_id: []}
+# Prepare the data in JSON format
+# Initialize as a list of dicts `employee_id` as the key and [] as the value
+data = [{employee_id: []}]
 
 for todo in todos:
     task_data = {
@@ -28,8 +30,10 @@ for todo in todos:
         "completed": todo.get("completed"),
         "username": employee_name
     }
-    data[employee_id].append(task_data)
+    # Append to the first (and only) dict in the list
+    data[0][employee_id].append(task_data)
 
+# Write the JSON data to a file
 output_file = f"{employee_id}.json"
 
 with open(output_file, 'w') as json_file:
